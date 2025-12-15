@@ -1,3 +1,6 @@
+// Soal 1,2,3,4,5,6,7,8,10 Tuntas //
+// Soal 9 Setengah Tuntas Gak Sempet nomor 2 nya //
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -30,7 +33,7 @@ int totalNilaiProduk(int harga, int stok);
 void printDataProduk(int id, char nama[], int harga, int stok);
 int hitungStokRekursif(int index);
 
-
+// OPTION //
 int main() {
     int pilihan;
 
@@ -65,6 +68,7 @@ int main() {
     return 0;
 }
 
+// Void MENU //
 void tampilkanMenu() {
     printf("\n=== MENU TOKO ===\n");
     printf("1. Sequence\n");
@@ -79,13 +83,12 @@ void tampilkanMenu() {
     printf("10. Recursive\n");
     printf("0. Keluar\n");
 }
-
+// Sequence //
 void menuSequence() {
     int id, harga, stok, total;
     char nama[50];
 
     printf("\n=== MENU SEQUENCE ===\n");
-    printf("Pilih menu: 1\n");
     printf("Input ID Produk   : "); scanf("%d", &id);
     getchar();
     printf("Input Nama Produk : "); scanf("%[^\n]s", nama);
@@ -101,13 +104,13 @@ void menuSequence() {
     printf("Stok        : %d\n", stok);
     printf("Total nilai : %d\n", total);
 }
+// Selection //
 void menuSelection() {
     int id, harga, stok;
     char nama[50];
     char status[20];
 
     printf("\n=== MENU SELECTION ===\n");
-    printf("Pilih menu: 2\n");
     printf("Input ID Produk   : "); scanf("%d", &id);
     getchar();
     printf("Input Nama Produk : "); scanf("%[^\n]s", nama);
@@ -116,7 +119,7 @@ void menuSelection() {
 
     if (stok == 0) {
         strcpy(status, "HABIS");
-    } else if (stok < 10) {
+    } else if (stok < 5) {
         strcpy(status, "MENIPIS");
     } else {
         strcpy(status, "AMAN");
@@ -128,12 +131,13 @@ void menuSelection() {
     printf("Stok   : %d\n", stok);
     printf("Status : %s\n", status);
 }
+// Repetition //
 void menuRepetition() {
     int n, i;
     int totalStokBatch = 0;
     long long totalNilaiBatch = 0;
+
     printf("\n=== MENU REPETITION ===\n");
-    printf("Pilih menu: 3\n");
     printf("Berapa produk yang ingin diinput? ");
     scanf("%d", &n);
     for (i = 0; i < n; i++) {
@@ -155,11 +159,12 @@ void menuRepetition() {
 int totalNilaiProduk(int harga, int stok) {
     return harga * stok;
 }
+// Function //
 void menuFunction() {
     int id, harga, stok, total;
     char nama[50];
+
     printf("\n=== MENU FUNCTION ===\n");
-    printf("Pilih menu: 4\n");
     printf("Input ID Produk   : "); scanf("%d", &id);
     getchar();
     printf("Input Nama Produk : "); scanf("%[^\n]s", nama);
@@ -168,6 +173,7 @@ void menuFunction() {
     total = totalNilaiProduk(harga, stok);
     printf("Total Nilai Produk: %d\n", total);
 }
+// Output Prosedur //
 void printDataProduk(int id, char nama[], int harga, int stok) {
     printf("\n=== OUTPUT PROSEDUR ===\n");
     printf("ID    : %d\n", id);
@@ -175,6 +181,7 @@ void printDataProduk(int id, char nama[], int harga, int stok) {
     printf("Harga : %d\n", harga);
     printf("Stok  : %d\n", stok);
 }
+// Prosedur //
 void menuProsedur() {
     int id, harga, stok;
     char nama[50];
@@ -188,7 +195,7 @@ void menuProsedur() {
 
     printDataProduk(id, nama, harga, stok);
 }
-
+// Array //
 void menuArray() {
     int n;
 
@@ -217,12 +224,12 @@ void menuArray() {
             dataProduk[i].stok);
     }
 }
+// Matrix //
 void menuMatrix() {
     int jumCabang, jumProdukMatrix;
     int stok[10][10];
     int totalStokPerProduk[10] = {0};
-    printf("\n=== MENU ===\n");
-    printf("Pilih menu: 7\n");
+    printf("\n=== MENU MATRIX ===\n");
     printf("Berapa cabang? "); scanf("%d", &jumCabang);
     printf("Berapa produk per cabang? "); scanf("%d", &jumProdukMatrix);
     for(int c = 0; c < jumCabang; c++) {
@@ -237,16 +244,17 @@ void menuMatrix() {
         printf("Produk %d = %d\n", p+1, totalStokPerProduk[p]);
     }
 }
+// Sorting //
 void menuSorting() {
     int subMenu;
-    printf("\n=== MENU ===\n");
+    printf("\n=== MENU SORTING ===\n");
     printf("Pilih menu: 8\n");
     if (jumlahProduk == 0) {
         printf("Kerjain nomor 6 Dulu!\n");
         return;
     }
     printf("\n--- SUBMENU SORTING ---\n");
-    printf("1. Sorting berdasarkan Harga (naik)\n");
+    printf("1. Sorting berdasarkan Harga (Naik)\n");
     printf("2. Sorting berdasarkan Nama (A-Z)\n");
     printf("Pilih: "); scanf("%d", &subMenu);
     for (int i = 0; i < jumlahProduk - 1; i++) {
@@ -273,16 +281,21 @@ void menuSorting() {
             dataProduk[i].id, dataProduk[i].nama, dataProduk[i].harga, dataProduk[i].stok);
     }
 }
+// Searching //
 void menuSearching() {
-    int cariID, found = 0;
+    int subMenu,cariID, found = 0;
+    char nama[50];
     printf("\n=== MENU SEARCHING ===\n");
-    printf("Pilih menu: 9\n");
 
     if (jumlahProduk == 0) {
-        printf("Data kosong. Input data terlebih dahulu.\n");
+        printf("Data kosong. Input data Pada nomor 6 terlebih dahulu.\n");
         return;
     }
-    printf("Masukkan ID yang dicari: ");
+    printf("\n--- SUBMENU SORTING ---\n");
+    printf("1. Cari Berdasarkan ID\n");
+    printf("2. Cari Berdasarkan Nama\n");
+    printf("Pilih: "); scanf("%d", &subMenu);
+    if (subMenu == 1) printf("Masukkan ID yang dicari: ");
     scanf("%d", &cariID);
     for (int i = 0; i < jumlahProduk; i++) {
         if (dataProduk[i].id == cariID) {
@@ -292,13 +305,15 @@ void menuSearching() {
             break;
         }
     }
+    if (subMenu == 2) printf("Masukan Nama yang dicari : ");
     if (!found) printf("Data dengan ID %d tidak ditemukan.\n", cariID);
 }
-
+// Hitung Stok //
 int hitungStokRekursif(int index) {
     if (index < 0) return 0;
     return dataProduk[index].stok + hitungStokRekursif(index - 1);
 }
+// Recrusive //
 void menuRecursive() {
     printf("\n=== MENU RECURSIVE ===\n");
     printf("Pilih menu: 10\n");
@@ -309,3 +324,5 @@ void menuRecursive() {
         printf("Total seluruh stok dari data menu 6: %d\n", total);
     }
 }
+
+// kalo ada sungai bolehkah menumpang mandi, jika ada umur panjang bolehkah menumpang mandi //
