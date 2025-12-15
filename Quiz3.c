@@ -185,8 +185,7 @@ void printDataProduk(int id, char nama[], int harga, int stok) {
 void menuProsedur() {
     int id, harga, stok;
     char nama[50];
-    printf("\n=== MENU ===\n");
-    printf("Pilih menu: 5\n");
+    printf("\n=== MENU PROSEDUR ===\n");
     printf("Input ID Produk   : "); scanf("%d", &id);
     getchar();
     printf("Input Nama Produk : "); scanf("%[^\n]s", nama);
@@ -199,8 +198,7 @@ void menuProsedur() {
 void menuArray() {
     int n;
 
-    printf("\n=== MENU ===\n");
-    printf("Pilih menu: 6\n");
+    printf("\n=== MENU ARRAY ===\n");
     printf("Berapa produk yang ingin disimpan? ");
     scanf("%d", &n);
 
@@ -316,7 +314,6 @@ int hitungStokRekursif(int index) {
 // Recrusive //
 void menuRecursive() {
     printf("\n=== MENU RECURSIVE ===\n");
-    printf("Pilih menu: 10\n");
     if (jumlahProduk == 0) {
         printf("Data kosong. Isi data di Menu 6.\n");
     } else {
